@@ -4,16 +4,16 @@
     max-width="344"
   >
     <v-img
-      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+      src= "https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
       height="200px"
     ></v-img>
 
     <v-card-title>
-      Top western road trips
+      {{name}}
     </v-card-title>
 
     <v-card-subtitle>
-      1,000 miles of wonder
+      {{price}}
     </v-card-subtitle>
 
     <v-card-actions>
@@ -21,7 +21,7 @@
         color="orange lighten-2"
         text
       >
-        Explore
+        Button
       </v-btn>
 
       <v-spacer></v-spacer>
@@ -39,7 +39,7 @@
         <v-divider></v-divider>
 
         <v-card-text>
-          I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+          {{description}}
         </v-card-text>
       </div>
     </v-expand-transition>
@@ -48,6 +48,12 @@
 
 <script>
 export default {
+    props: {
+        imageURL: String,
+        name: String,
+        description: String,
+        price: String,
+    },
     name: "Item",
     data: () => ({
       show: false,
