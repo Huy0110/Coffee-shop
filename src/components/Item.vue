@@ -4,7 +4,7 @@
     max-width="344"
   >
     <v-img
-      src= "https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+      :src= 'imageURL'
       height="200px"
     ></v-img>
 
