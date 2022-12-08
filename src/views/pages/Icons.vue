@@ -1,50 +1,62 @@
 <template>
-  <v-container fluid class="down-top-padding">
-    <v-row>
-        <v-col cols="12" sm="12">
-            <BaseCard heading="Icons - Material Design">
-                <IconsMaterial></IconsMaterial>
-            </BaseCard>
+<v-containeer>
+  <v-tabs fixed-tabs>
+    <v-tab>
+      Tra
+    </v-tab>
+    <v-tab>
+      Cafe
+    </v-tab>
+    <v-tab>
+      Menu
+    </v-tab>
+  </v-tabs>
+  <v-row>
+      <v-col cols="12" sm="12" md="6" lg="3">
+          <Item/>
+      </v-col>
+      <v-col cols="12" sm="12" md="6" lg="3">
+          <Item/>
+      </v-col>
+      <v-col cols="12" sm="12" md="6" lg="3">
+          <Item/>
+      </v-col>
+      <v-col cols="12" sm="12" md="6" lg="3">
+          <Item/>
+      </v-col>
+      <v-col cols="12" sm="12" md="6" lg="3">
+          <Item/>
+      </v-col>
+      <v-col cols="12" sm="12" md="6" lg="3">
+          <Item/>
+      </v-col>
+      <v-col cols="12" sm="12" md="6" lg="3">
+          <Item/>
+      </v-col>
+      <v-col cols="12" sm="12" md="6" lg="3">
+          <Item/>
+      </v-col>
+  </v-row>
 
-            <BaseCard heading="Icons - Font Awesome">
-                <IconFontawesome></IconFontawesome>
-            </BaseCard>
 
-            <BaseCard heading="Icons - Color">
-                <IconColors></IconColors>
-            </BaseCard>
-
-            <BaseCard heading="Icons - Buttons">
-                <IconButtons></IconButtons>
-            </BaseCard>
-
-            <BaseCard heading="Icons - Clickable">
-                <IconClickable></IconClickable>
-            </BaseCard>
-
-            <BaseCard heading="Icons - MDI SVG">
-                <IconMdiSvg></IconMdiSvg>
-            </BaseCard>
-
-        </v-col>
-    </v-row>
-  </v-container>
+</v-containeer>
 </template>
 
 <script>
-
 export default {
   name: "Icons",
 
   data: () => ({
   }),
   components: {
-      IconsMaterial: () => import('@/components/vuetifyComponents/icons/IconsMaterial'),
-      IconFontawesome: () => import('@/components/vuetifyComponents/icons/IconFontawesome'),
-      IconColors: () => import('@/components/vuetifyComponents/icons/IconColors'),
-      IconButtons: () => import('@/components/vuetifyComponents/icons/IconButtons'),
-      IconClickable: () => import('@/components/vuetifyComponents/icons/IconClickable'),
-      IconMdiSvg: () => import('@/components/vuetifyComponents/icons/IconMdiSvg'),
+      Item: () => import('@/components/Item'),
+    //   MenuHeader,
+    //   IconsMaterial: () => import('@/components/vuetifyComponents/icons/IconsMaterial'),
+    //   IconFontawesome: () => import('@/components/vuetifyComponents/icons/IconFontawesome'),
+    //   IconColors: () => import('@/components/vuetifyComponents/icons/IconColors'),
+    //   IconButtons: () => import('@/components/vuetifyComponents/icons/IconButtons'),
+    //   IconClickable: () => import('@/components/vuetifyComponents/icons/IconClickable'),
+    //   IconMdiSvg: () => import('@/components/vuetifyComponents/icons/IconMdiSvg'),
   }
 };
 </script>

@@ -43,6 +43,12 @@ export default new Router({
                     component: () => import('@/views/dashboard/BasicDashboard'),
                 },
 
+                // {
+                //     name: 'MenuHeader',
+                //     path: 'pages/menu',
+                //     component: () => import('@/views/dashboard/BasicDashboard'),
+                // },
+
             ]
         },
 
