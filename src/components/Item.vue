@@ -2,17 +2,18 @@
   <v-card
     class="mx-auto"
     max-width="344"
+    color="transparent"
   >
     <v-img
       :src= 'imageURL'
       height="200px"
     ></v-img>
 
-    <v-card-title>
+    <v-card-title style="padding: 12px 0">
       {{name}}
     </v-card-title>
 
-    <v-card-subtitle>
+    <v-card-subtitle style="padding: 12px 0">
       {{price}}
     </v-card-subtitle>
 
