@@ -32,16 +32,23 @@ export default new Router({
                 },
 
                 {
+                    name: 'NewOrders',
+                    path: 'pages/new-orders',
+                    component: () => import('@/views/pages/NewOrders'),
+                },
+                {
                     name: 'TableSimple',
                     path: 'pages/tables-simple',
                     component: () => import('@/views/pages/TableSimple'),
                 },
+
 
                 {
                     name: 'Dashboard',
                     path: 'dashboard/basic-dashboard',
                     component: () => import('@/views/dashboard/BasicDashboard'),
                 },
+
 
                 // {
                 //     name: 'MenuHeader',
