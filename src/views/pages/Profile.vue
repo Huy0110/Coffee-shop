@@ -1,68 +1,55 @@
 <template>
   <v-container fluid class="down-top-padding">
-    <v-row>
+    <v-row style="background-color: white">
       <v-col cols="12" lg="4">
         <v-card>
           <v-card-text class="text-center pa-7">
             <img
-              src="https://randomuser.me/api/portraits/men/81.jpg"
+              src="https://minio.thecoffeehouse.com/image/admin/jh_703085.jpeg"
               alt="user"
-              width="150px"
-              class="img-fluid rounded-circle shadow-sm"
+              width="300px"
+              class="img-fluid  shadow-sm"
             />
-            <h4 class="mt-2 title blue-grey--text text--darken-2 font-weight-regular">Hanna Gover</h4>
-            <h6 class="subtitle-2 font-weight-light">Accoubts Manager Amix corp</h6>
+            <h4 class="mt-2 title black--text text--darken-2 font-weight-regular">The Coffee House</h4>
+            <h6 class="subtitle-2 font-weight-medium">Bách Khoa</h6>
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="12" lg="8">
-        <v-card>
-          <v-card-text>
-            <h3 class="title blue-grey--text text--darken-2 font-weight-regular">Default Form</h3>
-            <h6 class="subtitle-2 font-weight-light">All with vuetify element attributes</h6>
-          </v-card-text>
-          <v-divider></v-divider>
-          <v-card-text>
-            <v-text-field
-              v-model="dtext"
-              label="Default Text e.g. 'George deo'"
-              filled
-              background-color="transparent"
-            ></v-text-field>
-            <v-text-field
-              type="email"
-              v-model="emailtext"
-              label="Email e.g. 'example@gmail.com"
-              filled
-              background-color="transparent"
-            ></v-text-field>
-            <v-text-field
-              v-model="password"
-              filled
-              background-color="transparent"
-              :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-              :rules="[rules.required, rules.min]"
-              :type="show1 ? 'text' : 'password'"
-              name="input-10-1"
-              label="Password"
-              hint="At least 8 characters"
-              counter
-              @click:append="show1 = !show1"
-            ></v-text-field>
-            <v-textarea
-              filled
-              name="input-7-4"
-              rows="3"
-              label="Textarea"
-              value
-              background-color="transparent"
-            ></v-textarea>
-            <div class="mt-4">
-              <v-select :items="items" filled label="Select Country" background-color="transparent"></v-select>
+      <v-col cols="12" lg="8" style="margin: 0 -30px 0 30px">
+
+          <v-card-title>
+            <h1 class="title black--text text--darken-2 font-weight-medium text-md-h4 store_infor ">Thông tin cửa hàng </h1>
+          </v-card-title>
+
+          <v-row   >
+            <v-col cols="12" md="8" lg="8" style="margin-left: 16px;">
+              <h4 class="black--text text--darken-2 font-weight-medium text-subtitle-1 mb-1" style="margin-bottom: 0.5rem;font-size: 1rem" > Tên cửa hàng </h4>
+            <div >
+              <v-text-field filled readonly dense  type="text" value="The Coffee House Bách Khoa " class="v-text-field" >
+                </v-text-field>
             </div>
-            <v-btn class="text-capitalize mt-5 element-0" color="success">Submit</v-btn>
-          </v-card-text>
-        </v-card>
+
+              <div >
+                <h4 class="black--text text--darken-2 font-weight-medium text-subtitle-1 mb-1" style="margin-bottom: 0.5rem"> Số điện thoại  </h4>
+                <v-text-field filled readonly dense type="text" value="0911109111 " class="v-text-field" style="cursor: pointer" >
+                  </v-text-field>
+
+              </div>
+
+              <div >
+                <h4 class="black--text text--darken-2 font-weight-medium text-subtitle-1 mb-1" style="margin-bottom: 0.5rem"> Email  </h4>
+                <v-text-field filled readonly dense type="text" value="thecoffeehouse111333@gmail.com" class="v-text-field" >
+                  </v-text-field>
+              </div>
+
+              <div >
+                <h4 class="black--text text--darken-2 font-weight-medium text-subtitle-1 mb-1" style="margin-bottom: 0.5rem"> Địa chỉ  </h4>
+                <v-text-field filled readonly dense type="text" value="1 Đại Cồ Việt, Bách Khoa, Hai Bà Trưng, Hà Nội " class="v-text-field" >
+                  </v-text-field>
+              </div>
+            </v-col>
+          </v-row>
+
       </v-col>
     </v-row>
   </v-container>
@@ -72,22 +59,26 @@
 export default {
   name: "Profile",
 
-  data: () => ({
-    dtext: "George deo",
-    emailtext: "",
-    password: "",
-    disableinput: "",
-    checkbox1: "",
-    checkbox2: "",
-    checkbox3: "",
-    show1: false,
-    rules: {
-      required: value => !!value || "Required.",
-      min: v => v.length >= 8 || "Min 8 characters",
-      emailMatch: () => "The email and password you entered don't match"
-    },
-    items: ["London", "India", "America"]
-  }),
-  components: {}
 };
 </script>
+
+<style scoped>
+.store_infor{
+  text-align: left;
+  position: relative;
+}
+
+.store_infor::before{
+  content: "";
+  position: absolute;
+  width: 60%;
+  bottom: -5px;
+  left: 0;
+  border-bottom: 2px solid #fa8c16;
+}
+
+.v-text-field{
+   width: 500px;
+ }
+
+</style>
