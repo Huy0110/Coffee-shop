@@ -78,7 +78,7 @@
             </div>
             <div class="tch_social" >
               <ul>
-                <li>
+                <li style="margin-right: 13px">
                   <a href="https://www.facebook.com/The.Coffee.House.2014/">
                     <img src="https://file.hstatic.net/1000075078/file/test_fd4e30831d14438f9d0f1fcf255dfadb.svg" alt="">
                   </a>
@@ -116,27 +116,28 @@
 
               </template>
               <v-card>
-                <div  class="hotline text-h6 lighten-2 text-center font-weight-thin" style="padding: 20px 0 13px 0;font-family: 'SF Pro Text', sans-serif;">
+                <div  class="hotline  lighten-2 text-center font-weight-thin" style="padding: 26px 0 22px 0;font-family: 'SF Pro Text', sans-serif;">
                   Gọi hỗ trợ 19006936
                 </div>
 
-                <div style="display: flex">
+                <div style="display: flex;justify-content: space-between">
                   <v-btn
                       color="orange"
                       text
                       @click="dialog = false"
-                      style="padding-bottom: 25px;padding-top: 25px;align-items: center;right: -15%"
+                      style="padding-bottom: 28px;padding-top: 28px;align-items: center;right: -15%;width: 35%"
                       height="32px"
                       class="hotline_call"
+
                   >
                     Call
                   </v-btn>
-                  <v-spacer></v-spacer>
+
                   <v-btn
                       color="black"
                       text
                       @click="dialog = false"
-                      style="left: -15%;padding-bottom: 25px;padding-top: 25px;align-items: center"
+                      style="left: -15%;padding-bottom: 28px;padding-top: 28px;align-items: center;width: 35%"
                       height="32px"
                   >
                     Cancel
@@ -250,14 +251,16 @@ export default {
     left: 0;
     right: 0;
     bottom: 42%;
-    border-bottom:0.1px solid gray ;
+    border-bottom:0.1px solid lightgrey ;
 
   }
   .hotline_call::after{
     content: "";
     position: absolute;
-    right: 42%;
-    border-right:0.1px solid gray ;
+    right: 0%;
+    bottom: 0;
+    top: 4%;
+    border-right: 0.1px solid lightgrey;
   }
 
   .img {
