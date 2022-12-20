@@ -59,15 +59,17 @@
         </v-card>
       </v-col>
     </v-row>
+    <Footer></Footer>
   </v-container>
 </template>
 
 <script>
 
 export default {
-  name: "TableSimple",
+  name: "PaymentHistory",
   components: {
     View_Header: () => import('@/layouts/header/View_Header'),
+    Footer: () => import('@/layouts/footer/Footer'),
   },
   data () {
     return {
