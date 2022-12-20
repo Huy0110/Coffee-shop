@@ -1,5 +1,6 @@
 <template>
   <v-container fluid class="down-top-padding">
+    <View_Header></View_Header>
     <v-row style="background-color: white">
       <v-col cols="12" lg="4">
         <v-card>
@@ -52,12 +53,17 @@
 
       </v-col>
     </v-row>
+    <Footer></Footer>
   </v-container>
 </template>
 
 <script>
 export default {
   name: "Profile",
+  components: {
+    View_Header: () => import('@/layouts/header/View_Header'),
+    Footer: () => import('@/layouts/footer/Footer'),
+  },
 
 };
 </script>

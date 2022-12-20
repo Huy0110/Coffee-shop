@@ -3,27 +3,23 @@
     <Header v-model="expandOnHover"></Header>
     <Sidebar :expand-on-hover.sync="expandOnHover"></Sidebar>
     <v-content>
-      <v-container class="fill-height" fluid>
+      <v-container rounded-0 class="fill-height" fluid>
         <router-view />
       </v-container>
     </v-content>
-
-    <Footer></Footer>
   </v-app>
 </template>
 
 <script>
 import Header from "./header/Header";
 import Sidebar from "./sidebar/Sidebar";
-import Footer from "./footer/Footer";
 import { mapState, mapMutations } from "vuex";
 export default {
   name: "Layout",
 
   components: {
     Header,
-    Sidebar,
-    Footer
+    Sidebar
   },
 
   props: {
@@ -43,3 +39,10 @@ export default {
   }
 };
 </script>
+
+<style>
+.fill-height {
+  align-items: start !important;
+  margin-top: 42px;
+}
+</style>

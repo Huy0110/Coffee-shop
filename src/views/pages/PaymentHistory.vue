@@ -1,8 +1,9 @@
 <template>
   <v-container fluid class="down-top-padding">
-    <v-row>
-      <v-col cols="12" sm="12" class="mt-5" >
-        <v-card style="padding: 0 24px">
+    <View_Header></View_Header>
+    <v-row class="pt-3">
+      <v-col cols="12" sm="12" class="pa-0 " >
+        <v-card style="padding: 0 12px">
           <v-row>
               <v-col cols="12" sm="6" >
                 <v-row>
@@ -58,13 +59,18 @@
         </v-card>
       </v-col>
     </v-row>
+    <Footer></Footer>
   </v-container>
 </template>
 
 <script>
 
 export default {
-  name: "TableSimple",
+  name: "PaymentHistory",
+  components: {
+    View_Header: () => import('@/layouts/header/View_Header'),
+    Footer: () => import('@/layouts/footer/Footer'),
+  },
   data () {
     return {
       search: '',
@@ -139,9 +145,8 @@ export default {
       }else
         return total+'VNĐ';
 
-
        // return a.reduce((accumulator, currentValue) => accumulator + currentValue,0);
     }
-  }
+  },
 };
 </script>

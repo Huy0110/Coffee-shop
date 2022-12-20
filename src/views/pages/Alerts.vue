@@ -1,21 +1,11 @@
 <template>
   <v-container fluid class="down-top-padding">
+
+    <View_Header></View_Header>
     <v-row style="background-color: white">
       <v-col cols="12" sm="12" md="12"  >
         <h2  style="justify-content: center; display: flex;left: 50%; padding: 16px 0">Chi tiết đơn hàng </h2>
       </v-col>
-
-<!--      <v-col cols="12" sm="12" md="6">-->
-<!--          <v-row>-->
-<!--          <v-col cols="12" md="3"    style=" align-items: center; display: flex;">-->
-<!--            <h4 class="black&#45;&#45;text text&#45;&#45;darken-2 font-weight-medium text-subtitle-1  align-center"  style="font-size: 1rem" > Thời gian: </h4>-->
-<!--          </v-col>-->
-<!--          <v-col cols="12" md="9">-->
-<!--            <v-text-field filled readonly dense hide-details type="text" value="12:05:39" class="v-text-field " solo flat style="justify-content: center" >-->
-<!--            </v-text-field>-->
-<!--          </v-col>-->
-<!--          </v-row>-->
-<!--      </v-col>-->
 
       <v-col cols="12" sm="12" md="6">
         <v-row>
@@ -125,6 +115,8 @@
         </v-btn>
       </v-row>
     </v-row>
+
+    <Footer></Footer>
   </v-container>
 </template>
 
@@ -132,6 +124,10 @@
 
 export default {
   name: "Alerts",
+  components: {
+    View_Header: () => import('@/layouts/header/View_Header'),
+    Footer: () => import('@/layouts/footer/Footer'),
+  },
   data () {
     return {
       headers: [
@@ -224,4 +220,5 @@ export default {
 .v-text-field{
   width: 1000px;
 }
+
 </style>
