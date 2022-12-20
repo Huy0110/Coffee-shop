@@ -37,9 +37,9 @@ export default new Router({
                     component: () => import('@/views/pages/NewOrders'),
                 },
                 {
-                    name: 'TableSimple',
-                    path: 'pages/tables-simple',
-                    component: () => import('@/views/pages/TableSimple'),
+                    name: 'PaymentHistory',
+                    path: 'pages/payment-history',
+                    component: () => import('@/views/pages/PaymentHistory'),
                 },
 
 
