@@ -51,7 +51,7 @@
             </div>
 
             <div>
-              <p class="adress_footer">
+              <p class="adress_footer set_color">
                 Tầng 3-4 Hub Building
                 <br>
                 195/10E Điện Biên Phủ, P.15 ,
@@ -63,19 +63,7 @@
           </v-col>
 
           <v-col cols="12" lg="3" md="3" sm="6" >
-            <div class="thecfh_page" >
-              <div class="part1_left" >
-                <a href="https://www.facebook.com/The.Coffee.House.2014/">
-                  <img src="https://scontent.xx.fbcdn.net/v/t39.30808-1/310303597_3367483620192307_5878750474446874514_n.jpg?stp=cp0_dst-jpg_p50x50&_nc_cat=1&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=ZL8f8LXcUFQAX-3fGga&_nc_ht=scontent.xx&edm=AOm7FCUEAAAA&oh=00_AfA71SxhO_ELRutkP8NZkTBdT_TqphDHNWJ8ILFCT87V9w&oe=63A2A4AF" alt="">
-                </a>
-              </div>
-              <div class="part1_right" >
-                <div>
-                  <a href="https://www.facebook.com/The.Coffee.House.2014/" class="text" title="The Coffee House ">The Coffee House </a>
-                  <v-icon mdi-verified></v-icon>
-                </div>
-              </div>
-            </div>
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FThe.Coffee.House.2014&tabs=timeline&width=270&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="270" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
             <div class="tch_social" >
               <ul>
                 <li style="margin-right: 13px">
@@ -111,7 +99,7 @@
               <template v-slot:activator="{ on, attrs }">
 
                 <a  class="hotline_button" v-bind="attrs" v-on="on">
-                  <img style="width: 30px;height: 30px;" src="https://file.hstatic.net/1000075078/file/customer-service-line_2x_e5acb85c9abd40a2a95f2bf1f7253f05.png" >
+                  <img style="width: 30px;height: 30px;" src="https://file.hstatic.net/1000075078/file/customer-service-line_2x_e5acb85c9abd40a2a95f2bf1f7253f05.png" alt="" >
                 </a>
 
               </template>
@@ -177,7 +165,7 @@ export default {
 <style lang="scss" scoped>
   .v-application .footerpart{
     border-top:1px solid rgba(0,0,0,0.1)!important;
-    box-shadow:  6px 400px 6px 16px black inset;
+    background-color: black !important;
   }
   .footerpart{
     margin: 41px -11px -8px -11px;
@@ -201,7 +189,7 @@ export default {
     border-radius: 50%;
     text-align: center;
     line-height: 76px;
-    box-shadow: 0px 8px 36px rgb(0 0 0 / 17%);
+    box-shadow: 0 8px 36px rgb(0 0 0 / 17%);
     z-index: 10;
     padding: 0 !important;
   }
@@ -257,7 +245,7 @@ export default {
   .hotline_call::after{
     content: "";
     position: absolute;
-    right: 0%;
+    right: 0;
     bottom: 0;
     top: 4%;
     border-right: 0.1px solid lightgrey;
@@ -317,7 +305,7 @@ export default {
   .tch_social {
     display: flex;
     padding: 0;
-    margin-top: 80px;
+    margin-top: 18px;
   }
   .tch_social ul{
     list-style: none;
@@ -329,4 +317,7 @@ export default {
     height: auto;
   }
 
+  .set_color{
+    color: white;
+  }
 </style>
