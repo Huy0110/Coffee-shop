@@ -57,6 +57,13 @@ export default new Router({
                 // },
 
             ]
+
+        },
+        {
+            path: '/',
+            redirect: 'dashboard/basic-dashboard',
+            component: () => import('@/layouts/Layout'),
+
         },
 
     ],
