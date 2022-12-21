@@ -48,13 +48,21 @@ export default new Router({
                     path: 'dashboard/basic-dashboard',
                     component: () => import('@/views/dashboard/BasicDashboard'),
                 },
-
-
-                // {
-                //     name: 'MenuHeader',
-                //     path: 'pages/menu',
-                //     component: () => import('@/views/dashboard/BasicDashboard'),
-                // },
+                {
+                    name: 'Login',
+                    path: 'dashboard/login',
+                    component: () => import('@/views/Login.vue'),
+                },
+                {
+                    name: 'RegisterUser',
+                    path: 'dashboard/register',
+                    component: () => import('@/views/RegisterUser.vue'),
+                },
+                {
+                    name: 'LoginUser',
+                    path: 'dashboard/loginUser',
+                    component: () => import('@/views/LoginUser.vue'),
+                },
 
             ]
         },
