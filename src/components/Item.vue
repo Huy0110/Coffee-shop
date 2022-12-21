@@ -18,14 +18,22 @@
     </v-card-subtitle>
 
     <v-card-actions>
-      <v-btn
+      <!-- <v-btn
         color="orange lighten-2"
         text
       >
         Button
+      </v-btn> -->
+      <BtnEdit
+      :imageURL="imageURL"
+      :name="name"
+      :price="price"
+      :description="description"
+      />
+      <v-btn icon mdi-delete>
+        <v-icon>mdi-delete</v-icon>
       </v-btn>
-
-      <v-spacer></v-spacer>
+      <!-- <v-spacer></v-spacer> -->
 
       <v-btn
         icon
@@ -48,6 +56,7 @@
 </template>
 
 <script>
+// import BtnEdit from './vuetifyComponents/BtnEdit.vue'
 export default {
     props: {
         imageURL: String,
@@ -59,5 +68,9 @@ export default {
     data: () => ({
       show: false,
     }),
+    components: {
+      BtnEdit: () => import("@/components/vuetifyComponents/BtnEdit")
+    },
+    
 }
 </script>
