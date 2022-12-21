@@ -45,6 +45,7 @@ export default {
     Footer: () => import('@/layouts/footer/Footer'),
   },
   data () {
+
     return {
       headers: [
         {
