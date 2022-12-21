@@ -1,5 +1,6 @@
 <template>
 <v-container>
+  <View_Header></View_Header>
   <v-tabs fixed-tabs>
     <v-tab v-for="menuItem in menuItems" :key="menuItem.name" @click="menuIype=false">
       {{menuItem.name}}
@@ -9,7 +10,7 @@
 <!-- need to process menuType when click each category -->
   <!-- <menuCategory :menuType="category"/> -->
   <menuMenu/>
-
+  <Footer></Footer>
 
 </v-container>
 </template>
@@ -31,6 +32,8 @@ export default {
       // Item: () => import('@/components/Item'),
       // menuCategory: () => import('@/components/adminComponents/menuCategory'),
       menuMenu: () => import('@/components/adminComponents/menuMenu'),
+      View_Header: () => import('@/layouts/header/View_Header'),
+      Footer: () => import('@/layouts/footer/Footer'),
   }
 };
 </script>

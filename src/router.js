@@ -32,10 +32,16 @@ export default new Router({
                 },
 
                 {
-                    name: 'TableSimple',
-                    path: 'pages/tables-simple',
-                    component: () => import('@/views/pages/TableSimple'),
+                    name: 'NewOrders',
+                    path: 'pages/new-orders',
+                    component: () => import('@/views/pages/NewOrders'),
                 },
+                {
+                    name: 'PaymentHistory',
+                    path: 'pages/payment-history',
+                    component: () => import('@/views/pages/PaymentHistory'),
+                },
+
 
                 {
                     name: 'Dashboard',
@@ -57,6 +63,7 @@ export default new Router({
                     path: 'dashboard/loginUser',
                     component: () => import('@/views/LoginUser.vue'),
                 },
+
             ]
         },
 

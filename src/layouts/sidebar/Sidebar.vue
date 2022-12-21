@@ -36,7 +36,7 @@
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-icon>
 
-        <v-list-item-content>
+        <v-list-item-content >
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -83,10 +83,16 @@ export default {
       },
 
       {
-        title: "Basic Table",
+        title: "Payment History",
         icon: "mdi-table-column-width",
-        to: "/pages/tables-simple"
-      }
+        to: "/pages/payment-history"
+      },
+
+      {
+        title: "New Orders",
+        icon: "mdi-table-column-width",
+        to: "/pages/new-orders"
+      },
     ]
   }),
   computed: {
@@ -128,6 +134,6 @@ export default {
         
       }
       
-  }    
+  }
 }
 </style>
