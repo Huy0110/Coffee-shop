@@ -15,7 +15,7 @@
         <v-col cols="6" offset-sm="4" class="mt-2">
           <v-row>
               <v-row class="mt-4 grey--text text--darken-2 font-weight-regular" justify="center" align="center" >TỔNG SỐ ORDER TRONG NGÀY</v-row>
-              <v-row class="mt-3 title black--text text--darken-2 font-weight-regular text-h5 " justify="center" align="center" >6</v-row>
+              <v-row class="mt-3 title black--text text--darken-2 font-weight-regular text-h5 " justify="center" align="center" >{{new_orders.length}}</v-row>
           </v-row>
         </v-col>
       </v-row>
@@ -29,7 +29,11 @@
               hide-default-footer
               class="elevation-1"
               style="width: 100%"
-          ></v-data-table>
+          >
+<!--            <template v-slot:item.OrderID="{ item }">-->
+<!--              <a href="" > item.id </a>-->
+<!--            </template>-->
+          </v-data-table>
         </v-row>
       </v-col>
     </v-row>
@@ -48,12 +52,7 @@ export default {
 
     return {
       headers: [
-        {
-          text: 'Order No',
-          align: 'center',
-          value: 'number',
-          width:'10%',
-        },
+        {text: 'Order No', align: 'center', value: 'number', width:'10%',},
         { text: 'OrderID', value: 'id',align: 'center',width: '15%' },
         { text: 'Store', value: 'store',align: 'center',width: '10%' },
         { text: 'Phone Number', value: 'phone',align: 'center',width: '15%' },
