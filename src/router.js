@@ -14,9 +14,9 @@ export default new Router({
             children: [
                 // Components
                 {
-                    name: 'Alerts',
-                    path: 'pages/alerts',
-                    component: () => import('@/views/pages/Alerts'),
+                    name: 'OrderDetails',
+                    path: 'pages/order-detail',
+                    component: () => import('@/views/pages/OrderDetails'),
                 },
 
                 {
