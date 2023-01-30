@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed_header"  style="top: 52px;margin: 12px -12px;display: flex;background-color: white;height: 64px;align-items: center;border-style: ridge;height: 54px"   >
+  <div class="fixed_header"  style="top: -12px;margin: 12px -12px;display: flex;background-color: white;height: 64px;align-items: center;border-style: ridge;height: 54px"   >
     <v-spacer></v-spacer>
 
     <v-alert
