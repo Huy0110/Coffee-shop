@@ -52,11 +52,11 @@ export default {
 
     return {
       headers: [
-        {text: 'Order No', align: 'center', value: 'number', width:'10%',},
-        { text: 'OrderID', value: 'id',align: 'center',width: '15%' },
-        { text: 'Store', value: 'store',align: 'center',width: '10%' },
-        { text: 'Phone Number', value: 'phone',align: 'center',width: '15%' },
-        { text: 'Adress', value: 'address',align: 'center',width: '50%' },
+        {text: 'STT', align: 'center', value: 'number', width:'10%',},
+        { text: 'MÃ ĐƠN ', value: 'id',align: 'center',width: '15%' },
+        { text: 'CỬA HÀNG', value: 'store',align: 'center',width: '10%' },
+        { text: 'SỐ ĐIỆN THOẠI', value: 'phone',align: 'center',width: '15%' },
+        { text: 'ĐỊA CHỈ', value: 'address',align: 'center',width: '50%' },
 
       ],
       new_orders: [
