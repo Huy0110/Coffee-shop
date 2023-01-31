@@ -4,7 +4,7 @@
     <View_Header></View_Header>
     <v-row style="background-color: white">
       <v-col cols="12" sm="12" md="12"  >
-        <h2  style="justify-content: center; display: flex;left: 50%; padding: 16px 0">Chi tiết đơn hàng </h2>
+        <h2  style="justify-content: center; display: flex;left: 50%; padding: 16px 0">CHI TIẾT ĐƠN HÀNG </h2>
       </v-col>
 
       <v-col cols="12" sm="12" md="6">
@@ -60,7 +60,7 @@
           <div class="offset-md-5 mb-1" >
           <v-card-actions >
             <v-spacer></v-spacer>
-            <strong>Product Information</strong>
+            <strong>Thông tin sản phẩm</strong>
           </v-card-actions>
           </div>
           <v-data-table
@@ -81,7 +81,7 @@
           <div class="offset-md-5  mt-3" >
             <v-card-actions >
               <v-spacer></v-spacer>
-              <strong>Payment</strong>
+              <strong>Thanh toán</strong>
             </v-card-actions>
           </div>
           <v-data-table
@@ -103,7 +103,7 @@
             dark
             large
             class="mt-9 mb-9">
-          Delivery start
+           BẮT ĐẦU GIAO HÀNG
         </v-btn>
 
         <v-btn
@@ -111,7 +111,7 @@
             dark
             large
             class="mt-9 mb-9">
-          Cancel
+          HỦY
         </v-btn>
       </v-row>
     </v-row>
@@ -123,7 +123,7 @@
 <script>
 
 export default {
-  name: "Alerts",
+  name: "OrderDetails",
   components: {
     View_Header: () => import('@/layouts/header/View_Header'),
     Footer: () => import('@/layouts/footer/Footer'),
@@ -131,13 +131,13 @@ export default {
   data () {
     return {
       headers: [
-        {text: 'Product No', align: 'center', value: 'number', width:'10%',},
-        { text: 'Product Name', value: 'name',align: 'center',width: '40%' },
+        {text: 'STT', align: 'center', value: 'number', width:'10%',},
+        { text: 'TÊN SẢN PHẨM', value: 'name',align: 'center',width: '40%' },
         { text: 'Topping', value: 'topping_name',align: 'center',width: '30%' },
-        {text: 'Size',value: 'size',align: "center",width: '10%'},
-        { text: 'Product Count', value: 'amount',align: 'center',width: '10%' },
-        { text: 'Sales amount', value: 'cash',align: 'center',width: '15%' },
-        { text: 'Discount amount', value: 'discount',align: 'center',width: '15%' },
+        {text: 'CỠ',value: 'size',align: "center",width: '10%'},
+        { text: 'SỐ LƯỢNG', value: 'amount',align: 'center',width: '10%' },
+        { text: 'THÀNH TIỀN', value: 'cash',align: 'center',width: '15%' },
+        { text: 'GIẢM GIÁ', value: 'discount',align: 'center',width: '15%' },
 
 
       ],
@@ -185,16 +185,16 @@ export default {
       ],
       payment_headers: [
         {
-          text: 'Payment method',
+          text: 'PHƯƠNG THỨC THANH TOÁN',
           align: 'center',
           value: 'method',
           width:'60%',
         },
-        { text: 'Total Sales amount', value: 'total',align: 'center',width: '40%' },
+        { text: 'TỔNG TIỀN', value: 'total',align: 'center',width: '40%' },
       ],
       payment_infor: [
         {
-          method:'Tiền mặt',
+          method:'Tiền Mặt',
           total: '525000',
         },
       ],

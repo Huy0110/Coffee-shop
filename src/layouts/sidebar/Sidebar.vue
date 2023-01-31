@@ -71,9 +71,9 @@ export default {
       },
 
       {
-        title: "Alerts",
-        icon: "mdi-alert",
-        to: "/pages/alerts"
+        title: "Order Detail",
+        icon: "mdi-table-column-width",
+        to: "/pages/order-detail"
       },
 
       {
