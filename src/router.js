@@ -4,7 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-    mode: 'hash',
+    mode: 'history',
     base: process.env.BASE_URL,
     routes: [
         {
@@ -15,7 +15,7 @@ export default new Router({
                 // Components
                 {
                     name: 'OrderDetails',
-                    path: 'pages/order-detail',
+                    path: 'order-detail/:order_detail_id',
                     component: () => import('@/views/pages/OrderDetails'),
                 },
 
@@ -58,11 +58,6 @@ export default new Router({
                     path: 'dashboard/register',
                     component: () => import('@/views/RegisterUser.vue'),
                 },
-                {
-                    name: 'LoginUser',
-                    path: 'dashboard/loginUser',
-                    component: () => import('@/views/LoginUser.vue'),
-                },
 
             ]
 
@@ -71,8 +66,8 @@ export default new Router({
             path: '/',
             redirect: 'dashboard/basic-dashboard',
             component: () => import('@/layouts/Layout'),
-
         },
+
 
     ],
 })
