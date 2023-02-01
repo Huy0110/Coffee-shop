@@ -71,13 +71,7 @@ export default {
       },
 
       {
-        title: "Order Detail",
-        icon: "mdi-table-column-width",
-        to: "/pages/order-detail"
-      },
-
-      {
-        title: "Icons",
+        title: "Products",
         icon: "mdi-emoticon",
         to: "/pages/icons"
       },
@@ -90,7 +84,7 @@ export default {
 
       {
         title: "New Orders",
-        icon: "mdi-table-column-width",
+        icon: "mdi-order-bool-ascending-variant",
         to: "/pages/new-orders"
       },
     ]
