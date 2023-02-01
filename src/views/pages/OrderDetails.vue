@@ -130,6 +130,7 @@ export default {
   },
   data () {
     return {
+      currentID:'',
       headers: [
         {text: 'STT', align: 'center', value: 'number', width:'10%',},
         { text: 'TÊN SẢN PHẨM', value: 'name',align: 'center',width: '40%' },
@@ -207,21 +208,13 @@ export default {
       }
     }
   },
-  // computed:{
-  //   Total(){
-  //     let total =0;
-  //     let datasub =  this.products_infor.map(product_infor => Number(product_infor.cash));
-  //     for(let i=0;i<datasub.length;i++){
-  //       total += (datasub[i]);
-  //     }
-  //     if(Number.isInteger(total)){
-  //       return total+'.000VNĐ';
-  //     }else
-  //       return total+'VNĐ';
-  //
-  //
-  //   }
-  // }
+  created(){
+    console.log(this.$route.path)
+    this.currentID = this.$route.path.slice(14)
+
+    console.log("current id: ",this.currentID)
+  //  get api by currentid
+  },
 };
 </script>
 

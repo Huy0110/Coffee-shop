@@ -60,10 +60,6 @@
             <v-dialog v-model="dialog" persistent max-width="600px" right>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn color="black" plain retain-focus-on-click  v-bind="attrs" v-on="on" mdi-plus-box-outliine icon style="margin-top: 84px;margin-left: 90px">
-                  <!-- Open Dialog  -->
-                  <!-- <v-icon icon="fa:fas fa- edit"></v-icon> -->
-
-<!--                  <img style="width: 15%;opacity: 0.6;margin-left: 178px;margin-top: 170px" src="http://cdn.onlinewebfonts.com/svg/img_414457.png" alt="">-->
                     <v-icon large style="font-size: 160px;">mdi-plus-box-outline</v-icon>
                 </v-btn>
               </template>
@@ -244,7 +240,7 @@ export default {
   },
   components: {
     Item: () => import("@/components/Item"),
-    // BtnNew: () => import("@/components/vuetifyComponents/BtnNew")
+
   },
 
   methods: {

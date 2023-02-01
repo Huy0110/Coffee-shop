@@ -29,9 +29,21 @@
               hide-default-footer
               class="elevation-1"
               style="width: 100%"
+              @click:row="selected"
           >
-<!--            <template v-slot:item.OrderID="{ item }">-->
-<!--              <a href="" > item.id </a>-->
+            <template v-slot:item="{ item }">
+              <tr style="text-align: center">
+                <td>{{item.number}}</td>
+                <td  @click="rowClicked(item.id)"><u style="cursor: pointer" >{{item.id}}</u></td>
+                <td>{{item.store}}</td>
+                <td>{{item.phone}}</td>
+                <td>{{item.address}}</td>
+              </tr>
+            </template>
+<!--            <template v-slot:item.data-table-select="{ on , item }">-->
+<!--              <div v-bind="item" v-on="on">-->
+<!--              <a href="" > {{item.id}} </a>-->
+<!--              </div>-->
 <!--            </template>-->
           </v-data-table>
         </v-row>
@@ -49,8 +61,10 @@ export default {
     Footer: () => import('@/layouts/footer/Footer'),
   },
   data () {
-
     return {
+      order_id_detail:'',
+      selected:[],
+      singleSelect: false,
       headers: [
         {text: 'STT', align: 'center', value: 'number', width:'10%',},
         { text: 'MÃ ĐƠN ', value: 'id',align: 'center',width: '15%' },
@@ -84,22 +98,16 @@ export default {
       ],
     }
   },
-  computed:{
-  //   Total(){
-  //     let total =0;
-  //     let datasub =  this.products_infor.map(product_infor => Number(product_infor.cash));
-  //     for(let i=0;i<datasub.length;i++){
-  //       total += (datasub[i]);
-  //     }
-  //     if(Number.isInteger(total)){
-  //       return total+'.000VNĐ';
-  //     }else
-  //       return total+'VNĐ';
-  //
-  //
-  //   }
-
+  methods:{
+    rowClicked(row) {
+      this.order_id_detail = row;
+      this.$router.push({
+        name: "OrderDetails",
+        params: {order_detail_id: `${this.order_id_detail}`},
+      }).catch(() => {});
+    },
   },
+
 
 };
 </script>
@@ -111,5 +119,6 @@ export default {
 
 .topss{
   align-items: start;
+
 }
 </style>
