@@ -48,8 +48,58 @@
               :imageURL="item.imageURL"
               :name="item.name"
               :description="item.description"
-              :price="item.price"
+              :price=separator(item.price)
             />
+          </v-col>
+          <v-col
+          cols="12"
+          sm="12"
+          md="6"
+          lg="4"
+          >
+            <v-dialog v-model="dialog" persistent max-width="600px" right>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn color="black" plain retain-focus-on-click  v-bind="attrs" v-on="on" mdi-plus-box-outliine icon style="margin-top: 84px;margin-left: 90px">
+                  <!-- Open Dialog  -->
+                  <!-- <v-icon icon="fa:fas fa- edit"></v-icon> -->
+
+<!--                  <img style="width: 15%;opacity: 0.6;margin-left: 178px;margin-top: 170px" src="http://cdn.onlinewebfonts.com/svg/img_414457.png" alt="">-->
+                    <v-icon large style="font-size: 160px;">mdi-plus-box-outline</v-icon>
+                </v-btn>
+              </template>
+              <v-card>
+                <v-card-title>
+                  <span class="text-h5">Thêm sản phẩm</span>
+                </v-card-title>
+                <v-card-text>
+                  <v-container>
+                    <v-row>
+                      <v-col cols="12">
+                        <v-text-field label="ImageURL" required v-model="addProduct.addImageURL"></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field label="Tên sản phẩm" required v-model="addProduct.addName"></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field label="Giá" required v-model="addProduct.addPrice"></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-textarea label="Mô tả" required v-model="addProduct.addDescription"></v-textarea>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="blue darken-1" text @click="dialog = false">
+                    Đóng
+                  </v-btn>
+                  <v-btn color="blue darken-1" text @click="dialog = false">
+                    Thêm sản phẩm
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
           </v-col>
         </v-row>
       </v-col>
@@ -70,6 +120,7 @@ export default {
     return {
       initiallyOpen: ["public"],
       tree: [],
+      dialog:false,
       files: {
         dots: "mdi-circle-small",
       },
@@ -120,28 +171,28 @@ export default {
       items: [
         {
           imageURL:
-            "https://product.hstatic.net/1000075078/product/1639377770_cfsua-nong_016e05cb3a334141898e5677fec34784_large.jpg",
+              "https://product.hstatic.net/1000075078/product/1639377770_cfsua-nong_016e05cb3a334141898e5677fec34784_large.jpg",
           name: "Cà Phê Sữa Nóng",
           description: "Oishii1",
           price: "19891",
         },
         {
           imageURL:
-            "https://product.hstatic.net/1000075078/product/1665655345_tch-sua-da_e0737a64b29e452f9c7eadb23300821a_large.jpg",
+              "https://product.hstatic.net/1000075078/product/1665655345_tch-sua-da_e0737a64b29e452f9c7eadb23300821a_large.jpg",
           name: "The Coffee House Sữa Đá",
           description: "Oishii2",
           price: "19892",
         },
         {
           imageURL:
-            "https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_966117a7eb0e42d398937f44cc63aca9_large.png",
+              "https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_966117a7eb0e42d398937f44cc63aca9_large.png",
           name: "Cà Phê Sữa Đá",
           description: "Oishii3",
           price: "19893",
         },
         {
           imageURL:
-            "https://product.hstatic.net/1000075078/product/1639377904_bac-siu_3df6607180474c2c81dfe213010be685_large.jpg",
+              "https://product.hstatic.net/1000075078/product/1639377904_bac-siu_3df6607180474c2c81dfe213010be685_large.jpg",
           name: "Bạc Sỉu",
           description: "Oishii4",
           price: "19894",
@@ -183,6 +234,12 @@ export default {
           price: "19890",
         },
       ],
+      addProduct :{
+        addImageURL:"",
+        addName:"",
+        addPrice:"",
+        addDescription:"",
+      },
     };
   },
   components: {
@@ -190,7 +247,15 @@ export default {
     // BtnNew: () => import("@/components/vuetifyComponents/BtnNew")
   },
 
-};
+  methods: {
+    separator(numb) {
+      var str = numb.toString().split(".");
+      str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      return str.join(".");
+    },
+
+  }
+}
 </script>
 
 <style>
