@@ -9,7 +9,7 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: 'dashboard/basic-dashboard',
+            redirect: 'pages/profile',
             component: () => import('@/layouts/Layout'),
             children: [
                 // Components
@@ -62,11 +62,7 @@ export default new Router({
             ]
 
         },
-        {
-            path: '/',
-            redirect: 'dashboard/basic-dashboard',
-            component: () => import('@/layouts/Layout'),
-        },
+
 
 
     ],
