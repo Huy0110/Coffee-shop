@@ -1,5 +1,5 @@
 <template>
-  <v-row>
+  <v-row style ="justify-content: flex-end; margin-right: 12px">
     <v-dialog v-model="dialog" persistent max-width="600px" right>
       <template v-slot:activator="{ on, attrs }">
         <v-btn color="primary" dark v-bind="attrs" v-on="on" mdi-edit icon>
