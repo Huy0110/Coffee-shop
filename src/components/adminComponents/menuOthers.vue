@@ -6,106 +6,31 @@
       </v-col>
   </v-row> -->
 
-    <v-row>
-      <v-col cols="12" md="4" lg="3" style="margin: 24px 0">
-        <v-treeview
-          v-model="tree"
-          :open="initiallyOpen"
-          :items="menuItems"
-          activatable
-          item-key="name"
-          open-on-click
-          transition
-        >
-          <template v-slot:prepend="{ item, open }">
-            <v-icon v-if="!item.file">
-              {{ open ? "mdi-coffee-to-go-outline" : "" }}
-            </v-icon>
-            <v-icon v-else>
-              {{ files[item.file] }}
-            </v-icon>
-          </template>
-        </v-treeview>
-      </v-col>
-
-      <v-col cols="12" sm="12" md="8" lg="9" style="margin: 24px 0">
         <v-row class="menu_bar">
           <v-col
-            cols="12"
-            sm="12"
-            md="6"
-            lg="4"
-            v-for="item in items"
-            :key="item.name"
+              cols="12"
+              xs="12"
+              sm="6"
+              md="3"
+              lg="3"
+              v-for="item in items"
+              :key="item.name"
+              style="margin: 24px 0"
           >
-              <!-- <v-card class="mx-auto" max-width="344" color="transparent"> 
-            <v-card-actions>
-              <BtnNew>
-              </BtnNew>
-            </v-card-actions>
-          </v-card> -->
-            <Item
-              :imageURL="item.imageURL"
-              :name="item.name"
-              :description="item.description"
-              :price=separator(item.price)
+            <Item_User
+                :imageURL="item.imageURL"
+                :name="item.name"
+                :description="item.description"
+                :price="item.price"
             />
           </v-col>
-          <v-col
-          cols="12"
-          sm="12"
-          md="6"
-          lg="4"
-          >
-            <v-dialog v-model="dialog" persistent max-width="600px" right>
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn color="black" plain retain-focus-on-click  v-bind="attrs" v-on="on" mdi-plus-box-outliine icon style="margin-top: 84px;margin-left: 90px">
-                    <v-icon large style="font-size: 160px;">mdi-plus-box-outline</v-icon>
-                </v-btn>
-              </template>
-              <v-card>
-                <v-card-title>
-                  <span class="text-h5">Thêm sản phẩm</span>
-                </v-card-title>
-                <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-col cols="12">
-                        <v-text-field label="ImageURL" required v-model="addProduct.addImageURL"></v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field label="Tên sản phẩm" required v-model="addProduct.addName"></v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field label="Giá" required v-model="addProduct.addPrice"></v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-textarea label="Mô tả" required v-model="addProduct.addDescription"></v-textarea>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                </v-card-text>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="dialog = false">
-                    Đóng
-                  </v-btn>
-                  <v-btn color="blue darken-1" text @click="dialog = false">
-                    Thêm sản phẩm
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-          </v-col>
         </v-row>
-      </v-col>
-    </v-row>
   </v-container>
 </template>
 
 <script>
 export default {
-  name: "menuCategory",
+  name: "menuCategory_withoutTree",
   props: {
     menuType: String,
   },
@@ -114,12 +39,6 @@ export default {
   // this data below is manually set up, neet to get from backend when have a api
   data() {
     return {
-      initiallyOpen: ["public"],
-      tree: [],
-      dialog:false,
-      files: {
-        dots: "mdi-circle-small",
-      },
       menuItems: [
         {
           name: "Tất cả",
@@ -230,28 +149,14 @@ export default {
           price: "19890",
         },
       ],
-      addProduct :{
-        addImageURL:"",
-        addName:"",
-        addPrice:"",
-        addDescription:"",
-      },
     };
   },
   components: {
-    Item: () => import("@/components/Item"),
-
+    Item_User: () => import("@/components/Item_User"),
+    // BtnNew: () => import("@/components/vuetifyComponents/BtnNew")
   },
 
-  methods: {
-    separator(numb) {
-      var str = numb.toString().split(".");
-      str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-      return str.join(".");
-    },
-
-  }
-}
+};
 </script>
 
 <style>

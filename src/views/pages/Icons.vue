@@ -2,13 +2,15 @@
 <v-container>
   <View_Header></View_Header>
   <v-tabs fixed-tabs>
-    <v-tab v-for="menuItem in menuItems" :key="menuItem.name" @click="menuIype=false">
+    <v-tab v-for="menuItem in menuItems" :key="menuItem.name" @click="menuType=false">
       {{menuItem.name}}
     </v-tab>
   </v-tabs>
 
 <!-- need to process menuType when click each category -->
   <!-- <menuCategory :menuType="category"/> -->
+
+
   <menuMenu/>
   <Footer></Footer>
 
@@ -21,7 +23,7 @@ export default {
 
   data() {
     return {
-      menuType: true,
+      menuType: false,
       menuItems: [
           {name: 'Tra'},
           {name: 'Coffee'},
