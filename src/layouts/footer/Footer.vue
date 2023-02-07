@@ -90,50 +90,50 @@
           </v-col>
 
 
-          <div class="text-center">
-            <v-dialog
-                v-model="dialog"
-                width=450
-                style="border-radius: 8px;"
-            >
-              <template v-slot:activator="{ on, attrs }">
+<!--          <div class="text-center">-->
+<!--            <v-dialog-->
+<!--                v-model="dialog"-->
+<!--                width=450-->
+<!--                style="border-radius: 8px;"-->
+<!--            >-->
+<!--              <template v-slot:activator="{ on, attrs }">-->
 
-                <a  class="hotline_button" v-bind="attrs" v-on="on">
-                  <img style="width: 30px;height: 30px;" src="https://file.hstatic.net/1000075078/file/customer-service-line_2x_e5acb85c9abd40a2a95f2bf1f7253f05.png" alt="" >
-                </a>
+<!--                <a  class="hotline_button" v-bind="attrs" v-on="on">-->
+<!--                  <img style="width: 30px;height: 30px;" src="https://file.hstatic.net/1000075078/file/customer-service-line_2x_e5acb85c9abd40a2a95f2bf1f7253f05.png" alt="" >-->
+<!--                </a>-->
 
-              </template>
-              <v-card>
-                <div  class="hotline  lighten-2 text-center font-weight-thin" style="padding: 26px 0 22px 0;font-family: 'SF Pro Text', sans-serif;">
-                  Gọi hỗ trợ 19006936
-                </div>
+<!--              </template>-->
+<!--              <v-card>-->
+<!--                <div  class="hotline  lighten-2 text-center font-weight-thin" style="padding: 26px 0 22px 0;font-family: 'SF Pro Text', sans-serif;">-->
+<!--                  Gọi hỗ trợ 19006936-->
+<!--                </div>-->
 
-                <div style="display: flex;justify-content: space-between">
-                  <v-btn
-                      color="orange"
-                      text
-                      @click="dialog = false"
-                      style="padding-bottom: 28px;padding-top: 28px;align-items: center;right: -15%;width: 35%"
-                      height="32px"
-                      class="hotline_call"
+<!--                <div style="display: flex;justify-content: space-between">-->
+<!--                  <v-btn-->
+<!--                      color="orange"-->
+<!--                      text-->
+<!--                      @click="dialog = false"-->
+<!--                      style="padding-bottom: 28px;padding-top: 28px;align-items: center;right: -15%;width: 35%"-->
+<!--                      height="32px"-->
+<!--                      class="hotline_call"-->
 
-                  >
-                    Call
-                  </v-btn>
+<!--                  >-->
+<!--                    Call-->
+<!--                  </v-btn>-->
 
-                  <v-btn
-                      color="black"
-                      text
-                      @click="dialog = false"
-                      style="left: -15%;padding-bottom: 28px;padding-top: 28px;align-items: center;width: 35%"
-                      height="32px"
-                  >
-                    Cancel
-                  </v-btn>
-                </div>
-              </v-card>
-            </v-dialog>
-          </div>
+<!--                  <v-btn-->
+<!--                      color="black"-->
+<!--                      text-->
+<!--                      @click="dialog = false"-->
+<!--                      style="left: -15%;padding-bottom: 28px;padding-top: 28px;align-items: center;width: 35%"-->
+<!--                      height="32px"-->
+<!--                  >-->
+<!--                    Cancel-->
+<!--                  </v-btn>-->
+<!--                </div>-->
+<!--              </v-card>-->
+<!--            </v-dialog>-->
+<!--          </div>-->
 
 
         <v-col cols="12" lg="9" md="9" sm="9" class="ma-n3">
