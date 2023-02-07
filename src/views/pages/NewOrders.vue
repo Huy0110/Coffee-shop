@@ -34,15 +34,15 @@
             <template v-slot:item="{ item }">
               <tr style="text-align: center">
                 <td>{{item.number}}</td>
-                <td  @click="rowClicked(item.id)"><u style="cursor: pointer" >{{item.id}}</u></td>
-                <td>{{item.store}}</td>
-                <td>{{item.phone}}</td>
+                <td  @click="rowClicked(item.order_id)"><u style="cursor: pointer" >{{item.order_id}}</u></td>
+                <td>{{item.order_time.slice(10)}}</td>
+                <td>{{item.mobile_no}}</td>
                 <td>{{item.address}}</td>
               </tr>
             </template>
 <!--            <template v-slot:item.data-table-select="{ on , item }">-->
 <!--              <div v-bind="item" v-on="on">-->
-<!--              <a href="" > {{item.id}} </a>-->
+<!--              <a href="" > {{item.order_id}} </a>-->
 <!--              </div>-->
 <!--            </template>-->
           </v-data-table>
@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import axios from "axios"
 export default {
   name: "NewOrders",
   components: {
@@ -67,38 +68,32 @@ export default {
       singleSelect: false,
       headers: [
         {text: 'STT', align: 'center', value: 'number', width:'10%',},
-        { text: 'MÃ ĐƠN ', value: 'id',align: 'center',width: '15%' },
-        { text: 'CỬA HÀNG', value: 'store',align: 'center',width: '10%' },
-        { text: 'SỐ ĐIỆN THOẠI', value: 'phone',align: 'center',width: '15%' },
+        { text: 'MÃ ĐƠN ', value: 'order_id',align: 'center',width: '15%' },
+        { text: 'Thời gian', value: 'order_time',align: 'center',width: '10%' },
+        { text: 'SỐ ĐIỆN THOẠI', value: 'mobile_no',align: 'center',width: '15%' },
         { text: 'ĐỊA CHỈ', value: 'address',align: 'center',width: '50%' },
 
       ],
-      new_orders: [
-        {
-          number:'1',
-          id: 'TCH2212113498',
-          store: 'BACH KHOA',
-          phone: '0982145971',
-          address:'Số 1 Trần Phú Hà Đông Hà Nội' ,
-        },
-        {
-          number:'2',
-          id: 'TCH2212113499',
-          store: 'BACH KHOA',
-          phone: '0326984172',
-          address: 'CT4A , khu đô thị Xala Hà Đông Hà Nội',
-        },
-        {
-          number:'3',
-          id: 'TCH2212113500',
-          store: 'BACH KHOA',
-          phone: '10971485214',
-          address: 'CT4C , khu đô thị Xala Hà Đông Hà Nội',
-        },
-      ],
+      new_orders: [],
     }
   },
+  created(){
+    this.getOrders()
+  },
   methods:{
+    getOrders(){
+      axios
+                .get("http://127.0.0.1:8000/api/admin/order/getUnsuccessOrders")
+                .then((response) => {
+                  console.log("Unsucess: ", response.data);
+                    this.new_orders = response.data.orders;
+                })
+                .catch((error) => {
+                    console.log("Start\n");
+                    console.log(error.response)
+                    console.log("END\n");
+                });
+    },
     rowClicked(row) {
       this.order_id_detail = row;
       this.$router.push({

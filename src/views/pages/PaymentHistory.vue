@@ -61,7 +61,7 @@
               :items="contents"
               :search="search"
               :items-per-page="10"
-              :sort-by="['time']"
+              :sort-by="['order_time']"
               :sort-desc="true"
 
 
@@ -74,7 +74,7 @@
 </template>
 
 <script>
-
+import axios from "axios"
 export default {
   name: "PaymentHistory",
   components: {
@@ -87,49 +87,13 @@ export default {
       search: '',
       count:0,
       headers: [
-        {text: 'THỜI GIAN', align: 'start', sortable: true, value: 'time', width:'16%',},
-        { text: 'Mã ĐƠN HÀNG', value: 'tradingcode' ,width: '16%'},
-        { text: 'SỐ TIỀN', value: 'cash',width: '14%' },
-        { text: 'TÌNH TRẠNG ', value: 'status',width: '14%' },
-        { text: 'GHI CHÚ', value: 'note',width: '40%' },
+        {text: 'THỜI GIAN', align: 'start', sortable: true, value: 'order_time', width:'16%',},
+        { text: 'Mã ĐƠN HÀNG', value: 'order_id' ,width: '16%'},
+        { text: 'SỐ TIỀN', value: 'total_price',width: '14%' },
+        { text: 'TÊN KHÁCH HÀNG ', value: 'user_name',width: '14%' },
+        { text: 'GHI CHÚ', value: 'address',width: '40%' },
       ],
-      contents: [
-        {
-          time: '10-12-2022 19:04:33',
-          tradingcode: '22121000003892',
-          cash: '40000',
-          status: 'Thành công',
-          note: 'The Coffee House Bách Khoa',
-        },
-        {
-          time: '10-12-2022 20:05:19',
-          tradingcode: '22121000004493',
-          cash: '140000',
-          status: 'Thành công',
-          note: 'The Coffee House Bách Khoa',
-        },
-        {
-          time: '09-12-2022 16:03:00',
-          tradingcode: '22121000008324',
-          cash: '100000',
-          status: 'Thành công',
-          note: 'The Coffee House Bách Khoa',
-        },
-        {
-          time: '11-12-2022 11:09:48',
-          tradingcode: '22121000009462',
-          cash: '40000',
-          status: 'Thành công',
-          note: 'The Coffee House Bách Khoa',
-        },
-        {
-          time: '07-12-2022 09:12:28',
-          tradingcode: '22121000009811',
-          cash: '60000',
-          status: 'Thành công',
-          note: 'The Coffee House Bách Khoa',
-        },
-      ],
+      contents: []
     }
   },
   computed:{
@@ -137,7 +101,7 @@ export default {
     saleTotal(){
       let total = 0;
       for(let i = 0 ; i < this.contents.length ; i++){
-          total += parseInt(this.contents[i].cash)
+          total += parseInt(this.contents[i].total_price)
       }
       return this.separator(total);
     },
@@ -145,7 +109,23 @@ export default {
       return this.contents.length;
     }
   },
+  created(){
+    this.getOrders()
+  },
   methods:{
+    getOrders(){
+      axios
+                .get("http://127.0.0.1:8000/api/admin/order/getSuccessOrders")
+                .then((response) => {
+                    this.contents = response.data.orders;
+                    console.log(response.data);
+                })
+                .catch((error) => {
+                    console.log("Start\n");
+                    console.log(error.response)
+                    console.log("END\n");
+                });
+    },
     separator(numb) {
       var str = numb.toString().split(".");
       str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
