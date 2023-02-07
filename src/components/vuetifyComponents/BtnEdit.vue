@@ -16,7 +16,7 @@
           <v-container>
             <v-row>
               <v-col cols="12">
-                <v-text-field label="ImageURL" required v-model="imageURL"></v-text-field>
+                <v-text-field label="image_url" required v-model="image_url"></v-text-field>
               </v-col>
               <v-col cols="12">
                 <v-text-field label="Name" required v-model="name"></v-text-field>
@@ -48,7 +48,7 @@
 <script>
 export default {
   props: {
-        imageURL: String,
+        image_url: String,
         name: String,
         price: String,
         description: String,
