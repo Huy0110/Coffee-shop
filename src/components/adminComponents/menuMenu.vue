@@ -32,7 +32,7 @@
           </v-card> -->
                     <Item :image_url="item.image_url" :name="item.name" :description="item.description" :price="item.price" :id="item.id" :category_id="item.category_id" :price_sale="item.price_sale" :active="item.active" :created_at="item.created_at" :updated_at="item.updated_at" />
                 </v-col>
-                <v-col cols="12" sm="12" md="6" lg="4">
+                <!-- <v-col cols="12" sm="12" md="6" lg="4">
                     <v-dialog v-model="dialog" persistent max-width="600px" right>
                         <template v-slot:activator="{ on, attrs }">
                             <v-btn color="black" plain retain-focus-on-click v-bind="attrs" v-on="on" mdi-plus-box-outliine icon style="margin-top: 84px;margin-left: 90px">
@@ -72,7 +72,7 @@
                             </v-card-actions>
                         </v-card>
                     </v-dialog>
-                </v-col>
+                </v-col> -->
             </v-row>
         </v-col>
     </v-row>

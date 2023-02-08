@@ -84,7 +84,7 @@
                     </div>
 
                     <div style="display: flex;justify-content: space-between">
-                        <v-btn color="orange" text @click="dialog1 = false" style="padding-bottom: 28px;padding-top: 28px;align-items: center;right: -15%;width: 35%" height="32px" class="hotline_call">
+                        <v-btn color="orange" text @click="handleXoa" style="padding-bottom: 28px;padding-top: 28px;align-items: center;right: -15%;width: 35%" height="32px" class="hotline_call">
                             Xác nhận
                         </v-btn>
 
@@ -142,6 +142,19 @@ export default {
     }),
 
     methods: {
+      handleXoa() {
+            this.dialog1 = false
+            axios
+                .post("http://127.0.0.1:8000/api/admin/product/destroy", {
+                    id: this.id
+                })
+                .then((response) => {
+                    console.log(response)
+                })
+                .catch((error) => {
+                    console.log(error.response);
+                });
+        },
       separator(numb) {
             var str = numb.toString().split(".");
             str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
