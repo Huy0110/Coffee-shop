@@ -36,7 +36,7 @@
                     <v-row class="mt-3 title black--text text--darken-2 font-weight-regular text-h5 " justify="center" align="center" >{{countOrders}}</v-row>
                   </v-col>
                   <v-col cols="12" sm="6">
-                    <div class="mt-4 ml-9 grey--text text--darken-2 font-weight-regular"   >NGÀY
+                    <div class="mt-4 ml-9 grey--text text--darken-2 font-weight-regular" >NGÀY {{mydate}}
                     <input type="date" v-model="mydate" >
                     </div>
                   </v-col>
@@ -63,9 +63,18 @@
               :items-per-page="10"
               :sort-by="['time']"
               :sort-desc="true"
-
-
-          ></v-data-table>
+          >
+            <template v-slot:item="{ item }">
+              <tr >
+                <td>{{item.time}}</td>
+<!--                <td  @click="rowClicked(item.id)"><u style="cursor: pointer" >{{item.id}}</u></td>-->
+                <td>{{item.tradingcode}}</td>
+                <td>{{item.cash}}</td>
+                <td>{{item.status}}</td>
+                <td>{{item.note}}</td>
+              </tr>
+            </template>
+          </v-data-table>
         </v-card>
       </v-col>
     </v-row>
@@ -95,35 +104,35 @@ export default {
       ],
       contents: [
         {
-          time: '10-12-2022 19:04:33',
+          time: '2023-02-04 19:04:33',
           tradingcode: '22121000003892',
           cash: '40000',
           status: 'Thành công',
           note: 'The Coffee House Bách Khoa',
         },
         {
-          time: '10-12-2022 20:05:19',
+          time: '2023-02-05 20:05:19',
           tradingcode: '22121000004493',
           cash: '140000',
           status: 'Thành công',
           note: 'The Coffee House Bách Khoa',
         },
         {
-          time: '09-12-2022 16:03:00',
+          time: '2023-02-06 16:03:00',
           tradingcode: '22121000008324',
           cash: '100000',
           status: 'Thành công',
           note: 'The Coffee House Bách Khoa',
         },
         {
-          time: '11-12-2022 11:09:48',
+          time: '2023-02-07 11:09:48',
           tradingcode: '22121000009462',
           cash: '40000',
           status: 'Thành công',
           note: 'The Coffee House Bách Khoa',
         },
         {
-          time: '07-12-2022 09:12:28',
+          time: '2023-02-08 09:12:28',
           tradingcode: '22121000009811',
           cash: '60000',
           status: 'Thành công',
