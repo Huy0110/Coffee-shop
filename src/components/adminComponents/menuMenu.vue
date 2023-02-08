@@ -21,10 +21,10 @@
             </v-treeview>
         </v-col>
 
-        <v-col cols="12" sm="12" md="8" lg="9" style="margin: 24px 0">
+        <v-col cols="12" sm="12" md="8" lg="9" style="margin: 24px 0; display: none">
             <v-row class="menu_bar">
                 <v-col cols="12" sm="12" md="6" lg="4" v-for="item in items" :key="item.name">
-                    <!-- <v-card class="mx-auto" max-width="344" color="transparent"> 
+                    <!-- <v-card class="mx-auto" max-width="344" color="transparent">
             <v-card-actions>
               <BtnNew>
               </BtnNew>

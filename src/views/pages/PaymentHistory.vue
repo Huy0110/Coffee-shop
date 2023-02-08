@@ -5,54 +5,54 @@
       <v-col cols="12" sm="12" class="pa-0 " >
         <v-card style="padding: 0 12px">
           <v-row>
-              <v-col cols="12" sm="6" >
-                <v-row>
-                  <v-col cols="12" sm="3" >
-                    <v-avatar size="120">
-                      <img
+            <v-col cols="12" sm="6" >
+              <v-row>
+                <v-col cols="12" sm="3" >
+                  <v-avatar size="120">
+                    <img
                         src="https://cdn.haitrieu.com/wp-content/uploads/2022/03/avatar-the-coffee-house.png"
                         alt="user"
                         width="300px"
                         class="img-fluid  shadow-sm"
-                      />
-                    </v-avatar>
-                  </v-col>
-                  <v-col cols="12" sm="9">
-                    <h4 class="mt-3 title black--text text--darken-2 font-weight-regular " >THE COFFEE HOUSE PAYMENT</h4>
-                    <h4 class="grey--text text--darken-2 font-weight-light text-subtitle-1 ">THE COFFEE HOUSE-HA NOI</h4>
-                    <h4 class="grey--text text--darken-2 font-weight-light text-subtitle-1 mt-n2">The Coffee House Bách Khoa</h4>
-                  </v-col>
-                </v-row>
-              </v-col>
+                    />
+                  </v-avatar>
+                </v-col>
+                <v-col cols="12" sm="9">
+                  <h4 class="mt-3 title black--text text--darken-2 font-weight-regular " >THE COFFEE HOUSE PAYMENT</h4>
+                  <h4 class="grey--text text--darken-2 font-weight-light text-subtitle-1 ">THE COFFEE HOUSE-HA NOI</h4>
+                  <h4 class="grey--text text--darken-2 font-weight-light text-subtitle-1 mt-n2">The Coffee House Bách Khoa</h4>
+                </v-col>
+              </v-row>
+            </v-col>
 
-              <v-col cols="12" sm="6" class="mt-2">
-                <v-row>
-                  <v-col cols="12" sm="6">
-                    <v-row class="mt-4 grey--text text--darken-2 font-weight-regular" justify="center" align="center" >TỔNG TIỀN GD TRONG NGÀY</v-row>
-                    <v-row class="mt-3 title black--text text--darken-2 font-weight-regular text-h5 " justify="center" align="center" > {{saleTotal}}VNĐ </v-row>
-                  </v-col>
-                  <v-col cols="12" sm="6">
-                    <v-row class="mt-4 grey--text text--darken-2 font-weight-regular" justify="center" align="center" >TỔNG SỐ GD TRONG NGÀY</v-row>
-                    <v-row class="mt-3 title black--text text--darken-2 font-weight-regular text-h5 " justify="center" align="center" >{{countOrders}}</v-row>
-                  </v-col>
-                  <v-col cols="12" sm="6">
-                    <div class="mt-4 ml-9 grey--text text--darken-2 font-weight-regular"   >NGÀY
+            <v-col cols="12" sm="6" class="mt-2">
+              <v-row>
+                <v-col cols="12" sm="6">
+                  <v-row class="mt-4 grey--text text--darken-2 font-weight-regular" justify="center" align="center" >TỔNG TIỀN GD TRONG NGÀY</v-row>
+                  <v-row class="mt-3 title black--text text--darken-2 font-weight-regular text-h5 " justify="center" align="center" > {{saleTotal}}VNĐ </v-row>
+                </v-col>
+                <v-col cols="12" sm="6">
+                  <v-row class="mt-4 grey--text text--darken-2 font-weight-regular" justify="center" align="center" >TỔNG SỐ GD TRONG NGÀY</v-row>
+                  <v-row class="mt-3 title black--text text--darken-2 font-weight-regular text-h5 " justify="center" align="center" >{{countOrders}}</v-row>
+                </v-col>
+                <v-col cols="12" sm="6">
+                  <div class="mt-4 ml-9 grey--text text--darken-2 font-weight-regular"  >NGÀY {{mydate}}
                     <input type="date" v-model="mydate" >
-                    </div>
-                  </v-col>
-                </v-row>
-              </v-col>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-col>
           </v-row>
           <v-card-title>
             <v-col cols="6" offset-sm="6">
-            <v-text-field
-                v-model="search"
-                append-icon="mdi-magnify"
-                label="Nhập mã đơn hàng "
-                single-line
-                dense
-                hide-details
-            ></v-text-field>
+              <v-text-field
+                  v-model="search"
+                  append-icon="mdi-magnify"
+                  label="Nhập mã đơn hàng "
+                  single-line
+                  dense
+                  hide-details
+              ></v-text-field>
             </v-col>
           </v-card-title>
 
@@ -63,9 +63,17 @@
               :items-per-page="10"
               :sort-by="['order_time']"
               :sort-desc="true"
-
-
-          ></v-data-table>
+          >
+            <template v-slot:item="{ item }">
+              <tr v-if="item.order_time.slice(0,10) === mydate">
+                <td>{{item.order_time }}</td>
+                <td>{{item.order_id}}</td>
+                <td>{{item.total_price}}</td>
+                <td>{{item.user_name}}</td>
+                <td>{{item.note}}</td>
+              </tr>
+            </template>
+          </v-data-table>
         </v-card>
       </v-col>
     </v-row>
@@ -93,21 +101,36 @@ export default {
         { text: 'TÊN KHÁCH HÀNG ', value: 'user_name',width: '14%' },
         { text: 'GHI CHÚ', value: 'address',width: '40%' },
       ],
-      contents: []
+      contents: [
+        {
+          order_time: '2023-02-08 19:04:33',
+          order_id: '22121000003892',
+          total_price: '40000',
+          user_name: 'Thành công',
+          note: 'The Coffee House Bách Khoa',
+        },
+        {
+          order_time: '2023-02-06 29:04:33',
+          order_id: '22121000003892',
+          total_price: '80000',
+          user_name: 'Thành công',
+          note: 'The Coffee House Bách Khoa',
+        },
+      ]
     }
   },
   computed:{
-
     saleTotal(){
       let total = 0;
       for(let i = 0 ; i < this.contents.length ; i++){
-          total += parseInt(this.contents[i].total_price)
+        total += parseInt(this.contents[i].total_price)
       }
       return this.separator(total);
     },
     countOrders(){
       return this.contents.length;
-    }
+    },
+
   },
   created(){
     this.getOrders()
@@ -115,44 +138,22 @@ export default {
   methods:{
     getOrders(){
       axios
-                .get("http://127.0.0.1:8000/api/admin/order/getSuccessOrders")
-                .then((response) => {
-                    this.contents = response.data.orders;
-                    console.log(response.data);
-                })
-                .catch((error) => {
-                    console.log("Start\n");
-                    console.log(error.response)
-                    console.log("END\n");
-                });
+          .get("http://127.0.0.1:8000/api/admin/order/getSuccessOrders")
+          .then((response) => {
+            this.contents = response.data.orders;
+            console.log(response.data);
+          })
+          .catch((error) => {
+            console.log("Start\n");
+            console.log(error.response)
+            console.log("END\n");
+          });
     },
     separator(numb) {
       var str = numb.toString().split(".");
       str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
       return str.join(".");
     },
-    customSort: function(items, index, isDesc) {
-      items.sort((a, b) => {
-        if (index[0]=='date') {
-          if (!isDesc[0]) {
-            return new Date(b[index]) - new Date(a[index]);
-          } else {
-            return new Date(a[index]) - new Date(b[index]);
-          }
-        }
-        else {
-          if(typeof a[index] !== 'undefined'){
-            if (!isDesc[0]) {
-              return a[index].toLowerCase().localeCompare(b[index].toLowerCase());
-            }
-            else {
-              return b[index].toLowerCase().localeCompare(a[index].toLowerCase());
-            }
-          }
-        }
-      });
-      return items;
-    }
 
   }
 };
