@@ -36,7 +36,7 @@
                   <v-row class="mt-3 title black--text text--darken-2 font-weight-regular text-h5 " justify="center" align="center" >{{countOrders}}</v-row>
                 </v-col>
                 <v-col cols="12" sm="6">
-                  <div class="mt-4 ml-9 grey--text text--darken-2 font-weight-regular"   >NGÀY
+                  <div class="mt-4 ml-9 grey--text text--darken-2 font-weight-regular"  >NGÀY {{mydate}}
                     <input type="date" v-model="mydate" >
                   </div>
                 </v-col>
@@ -63,9 +63,17 @@
               :items-per-page="10"
               :sort-by="['order_time']"
               :sort-desc="true"
-
-
-          ></v-data-table>
+          >
+            <template v-slot:item="{ item }">
+              <tr v-if="item.order_time.slice(0,10) === mydate">
+                <td>{{item.order_time }}</td>
+                <td>{{item.order_id}}</td>
+                <td>{{item.total_price}}</td>
+                <td>{{item.user_name}}</td>
+                <td>{{item.note}}</td>
+              </tr>
+            </template>
+          </v-data-table>
         </v-card>
       </v-col>
     </v-row>
@@ -95,17 +103,23 @@ export default {
       ],
       contents: [
         {
-          time: '2023-02-04 19:04:33',
-          tradingcode: '22121000003892',
-          cash: '40000',
-          status: 'Thành công',
+          order_time: '2023-02-08 19:04:33',
+          order_id: '22121000003892',
+          total_price: '40000',
+          user_name: 'Thành công',
+          note: 'The Coffee House Bách Khoa',
+        },
+        {
+          order_time: '2023-02-06 29:04:33',
+          order_id: '22121000003892',
+          total_price: '80000',
+          user_name: 'Thành công',
           note: 'The Coffee House Bách Khoa',
         },
       ]
     }
   },
   computed:{
-
     saleTotal(){
       let total = 0;
       for(let i = 0 ; i < this.contents.length ; i++){
@@ -115,7 +129,8 @@ export default {
     },
     countOrders(){
       return this.contents.length;
-    }
+    },
+
   },
   created(){
     this.getOrders()
@@ -139,28 +154,6 @@ export default {
       str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
       return str.join(".");
     },
-    customSort: function(items, index, isDesc) {
-      items.sort((a, b) => {
-        if (index[0]=='date') {
-          if (!isDesc[0]) {
-            return new Date(b[index]) - new Date(a[index]);
-          } else {
-            return new Date(a[index]) - new Date(b[index]);
-          }
-        }
-        else {
-          if(typeof a[index] !== 'undefined'){
-            if (!isDesc[0]) {
-              return a[index].toLowerCase().localeCompare(b[index].toLowerCase());
-            }
-            else {
-              return b[index].toLowerCase().localeCompare(a[index].toLowerCase());
-            }
-          }
-        }
-      });
-      return items;
-    }
 
   }
 };
