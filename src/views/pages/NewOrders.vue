@@ -78,7 +78,12 @@ export default {
     }
   },
   created(){
+    if(localStorage.getItem("AdminLoggedIn") == "false"){
+            this.$router.push("/dashboard/login")
+        }
+        else{
     this.getOrders()
+        }
   },
   methods:{
     getOrders(){
@@ -87,6 +92,9 @@ export default {
                 .then((response) => {
                   console.log("Unsucess: ", response.data);
                     this.new_orders = response.data.orders;
+                    for(let i in this.new_orders){
+                      this.new_orders[i].number = Number(i) +1
+                    }
                 })
                 .catch((error) => {
                     console.log("Start\n");
