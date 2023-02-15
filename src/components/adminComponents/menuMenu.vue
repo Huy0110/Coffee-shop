@@ -21,7 +21,7 @@
             </v-treeview>
         </v-col>
 
-        <v-col cols="12" sm="12" md="8" lg="9" style="margin: 24px 0; display: none">
+        <v-col cols="12" sm="12" md="8" lg="9" style="margin: 24px 0">
             <v-row class="menu_bar">
                 <v-col cols="12" sm="12" md="6" lg="4" v-for="item in items" :key="item.name">
                     <!-- <v-card class="mx-auto" max-width="344" color="transparent">
@@ -164,7 +164,7 @@ export default {
                 .get("http://127.0.0.1:8000/api/admin/product/index")
                 .then((response) => {
                     // console.log("START\n");
-                    // console.log(response);
+                    console.log(response);
                     // console.log("END\n");
                     this.items = response.data.products;
                     console.log("Categories:");
@@ -173,7 +173,9 @@ export default {
                     // console.log(this.items)
                 })
                 .catch((error) => {
+                    console.log("Start err")
                     console.log(error.response);
+                    console.log("End err")
                 });
             // const response = await abc();
         },
@@ -382,7 +384,12 @@ export default {
         },
     },
     created() {
+        if(localStorage.getItem("AdminLoggedIn") == "false"){
+            this.$router.push("/dashboard/login")
+        }
+        else{
         this.getItems();
+        }
     },
 }
 </script>
