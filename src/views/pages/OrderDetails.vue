@@ -177,11 +177,16 @@ export default {
         }
     },
     created() {
+        if(localStorage.getItem("AdminLoggedIn") == "false"){
+            this.$router.push("/dashboard/login")
+        }
+        else{
         console.log(this.$route.path)
         this.currentID = this.$route.path.slice(14)
         this.getOrderInfo()
 
         console.log("current id: ", this.currentID)
+        }
         //  get api by currentid
     },
     methods: {

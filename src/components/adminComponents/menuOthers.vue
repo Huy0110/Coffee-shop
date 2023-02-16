@@ -35,7 +35,12 @@ export default {
     },
 
     created() {
+        if(localStorage.getItem("AdminLoggedIn") == "false"){
+            this.$router.push("/dashboard/login")
+        }
+        else{
         this.getItemsByCategoryId()
+        }
     },
 
     watch: {

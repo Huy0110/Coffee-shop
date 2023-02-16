@@ -12,8 +12,11 @@
         <div v-if="menuType == 0">
             <menuMenu />
         </div>
-        <div v-else>
-            <menuOthers :menuType=menuType />
+        <div v-else-if="menuType == 1">
+            <menuOthers :menuType=19 />
+        </div>
+        <div v-else-if="menuType == 2">
+            <menuOthers :menuType=20 />
         </div>
     </div>
     <!-- <menuCategory :menuType="category"/> -->
@@ -104,7 +107,12 @@ export default {
         }
     },
     created() {
-        this.getCategories()
+        if(localStorage.getItem("AdminLoggedIn") == "false"){
+            this.$router.push("/dashboard/login")
+        }
+        else{
+            this.getCategories()
+        }
     },
     methods: {
         handleThem() {

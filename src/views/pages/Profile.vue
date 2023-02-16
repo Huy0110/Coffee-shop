@@ -64,6 +64,11 @@ export default {
     View_Header: () => import('@/layouts/header/View_Header'),
     Footer: () => import('@/layouts/footer/Footer'),
   },
+  created(){
+    if(localStorage.getItem("AdminLoggedIn") == "false"){
+            this.$router.push("/dashboard/login")
+        }
+  }
 
 };
 </script>
