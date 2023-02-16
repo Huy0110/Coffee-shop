@@ -68,7 +68,7 @@
               <tr v-if="item.order_time.slice(0,10) === mydate">
                 <td>{{item.order_time }}</td>
                 <td>{{item.order_id}}</td>
-                <td>{{item.total_price}}</td>
+                <td>{{separator(item.total_price)}}</td>
                 <td>{{item.user_name}}</td>
                 <td>{{item.note}}</td>
               </tr>
@@ -101,28 +101,14 @@ export default {
         { text: 'TÊN KHÁCH HÀNG ', value: 'user_name',width: '14%' },
         { text: 'GHI CHÚ', value: 'address',width: '40%' },
       ],
-      contents: [
-        {
-          order_time: '2023-02-08 19:04:33',
-          order_id: '22121000003892',
-          total_price: '40000',
-          user_name: 'Thành công',
-          note: 'The Coffee House Bách Khoa',
-        },
-        {
-          order_time: '2023-02-06 29:04:33',
-          order_id: '22121000003892',
-          total_price: '80000',
-          user_name: 'Thành công',
-          note: 'The Coffee House Bách Khoa',
-        },
-      ]
+      contents: []
     }
   },
   computed:{
     saleTotal(){
       let total = 0;
       for(let i = 0 ; i < this.contents.length ; i++){
+        if(this.contents[i].order_time.slice(0,10) === this.mydate)
         total += parseInt(this.contents[i].total_price)
       }
       return this.separator(total);
